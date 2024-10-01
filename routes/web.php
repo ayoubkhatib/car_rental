@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::name('front.')->group(function () {
+    Route::view('/', 'front.index')->name('index');
+    Route::view('/about', 'front.about')->name('about');
+    Route::view('/cars', 'front.car')->name('car');
+    Route::view('/contact', 'front.contact')->name('contact');
 });
 
 Route::get('/dashboard', function () {
